@@ -64,7 +64,7 @@ Initially you would think, what is the problem with that? Well if the data that 
 
 Look at this example. The image at the left is the message (plaintext) and the image at the right is the result of encrypting it using a trivial mode 
 
-![](https://static.lwn.net/images/2018/kr-donenfeld-tux.jpg)
+![](/images/encrypted_tux.png)
 
 
 <a name="myfootnote1">1</a>: This is an over simplistic view. The Padding method described here is PKCS5, and it is one of the many available. Besides, I have padded with “06” instead of the expected Hex 0x06, because I consider it easier for the reader
