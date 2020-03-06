@@ -1,4 +1,4 @@
-<h1> From zero crypto to padding oracle attack </h1>
+<h1> From Zero Crypto to the Padding Oracle Attack </h1>
 
 <h3>Intro </h3>
 This write up has been written for the <a href=https://twitter.com/mubix/status/1196821680137678849>#OCSPGiveaway</a> contest
