@@ -101,7 +101,7 @@ Let’s assume that last byte of Block #2, a8, is “n” (n between 0..255). So
 
 Now when the last byte of B#2 gets decrypted it will then be operated with this altered byte
 
-</code>Last byte of Message from Block #2: Decrypt(a8) + New last byte of Block #1 </code><br>
+<code>Last byte of Message from Block #2: Decrypt(a8) + New last byte of Block #1 </code><br>
 
 <ul>
 <li>If our assumption was not correct, we just replace “n” by one of the remaining 255 possible values.</li>
