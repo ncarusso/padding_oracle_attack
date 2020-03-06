@@ -20,3 +20,25 @@ Suppose that you want to send a message to a friend. Moreover, you want to send 
 A <b>function</b> is a process that given a certain input, it outputs a value. For instance, given the function that adds 1 to a number, we have 
 
 ![](/images/1.png)
+
+In the same way, in cryptography we have <b>crypto functions</b>.
+
+As it can be seen in the diagram below, the sender feeds a message into the crypto function and he receives the secure version of the message. This Process is known as <b>Encryption</b>.
+
+![](/images/2.png)
+
+Then, the receiver takes the secret message and recovers the readable message by feeding it into the crypto function. This process is known as <b>Decryption</b>.
+
+![](/images/3.png)
+
+This <b>CRYPTO function</b> that we have defined to refer to both the encryption and decryption process is known as the <b>cipher</b>.
+
+The complete process can be summarized as follows
+
+![](/images/enc1.png)
+
+So far, so good, but have you realized that if I know how the CRYPTO function works, I will be able to uncover the message that you have just sent to your friend? You don’t want me to do that but, how do you prevent it? By using a key, which is a secret value that both encryption and decryption operations use. 
+
+Now, if we add the <b>key</b> to the scheme above we have
+
+![](/images/enc2.png)
