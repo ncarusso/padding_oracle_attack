@@ -69,7 +69,7 @@ Look at this example. The image at the left is the message (plaintext) and the i
 To avoid this pitfall, we use CBC mode, which basically chains blocks together by taking the output of one encryption and mixing it into the input for the next block. If you recall the Crypto function boxes from the Crypto 101 section, this is no more than playing with them as you would do it with LEGO’s block, chaining one with the following, as can be seen in the diagram below
 
 ![](/images/4.png)
-<sup>[1](#myfootnote2)</sup>
+<sup>[2](#myfootnote2)</sup>
 
 <a name="myfootnote1">1</a>: This is an over simplistic view. The Padding method described here is PKCS5, and it is one of the many available. Besides, I have padded with “06” instead of the expected Hex 0x06, because I consider it easier for the reader
 <a name="myfootnote2">2</a>: IV stands for Initialization vector, which is a random input added to the message used only once (usually not kept as secret). I have taken the license of using the “+” symbol to avoid mentioning that the operation is Exclusive OR, XOR.
@@ -111,8 +111,12 @@ Now when the last byte of B#2 gets decrypted it will then be operated with this 
 <li>If our assumption was not correct, we just replace “n” by one of the remaining 255 possible values.</li>
 <li>If correct, the last byte of Block #2 is an “n” and the resulted last byte of Message from Block #2 will only be 01, which means that padding is correct. If that it the case, we need to move backwards and calculate the second to last byte of Block #1, and in this case, it will be done with the following expression:
 
-<code>New second-to-last byte of Block #1 = d8 + n + 02 ( remember that now we have 2 bytes of padding) </code> 
+<code>Block #1= b6a7979ebcd4<b>d8</b>4f</code><br>
+<code>Block #2= 3aba8c3d363bd8a8</code>
+
+<code>New second-to-last byte of Block #1 = <b>d8</b> + n + 02 ( remember that now we have 2 bytes of padding) </code> 
 </li>
+</ul>
 The same procedure can be applied to all the bytes in the block in order to decrypt them with the help of the oracle.
 
 <h4>How can it be detected?</h4>
