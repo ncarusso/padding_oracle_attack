@@ -50,3 +50,21 @@ Now that you have the foundations of cryptography we can move to some other topi
 
 The CRYPTO functions (or ciphers) that we have seen in crypto 101 are usually grouped into two categories: stream and block ciphers. Stream ciphers encrypt data on a bit-by-bit basis. Plaintext and ciphertext are always the same length. Unlike stream ciphers, which can encrypt data of any size, block ciphers can only encrypt data in "blocks" of a fixed size. So, what happens when the message that you want to send is shorter than the given block size (usually 8 or 16 bytes)? Well, that’s when the concept of <b>Padding</b> is needed. Follow me in this example
 You want to send the message <i>PWK Voucher</i> and the block size is 8 bytes. As the message is 10 bytes long (1 byte per character) you need two blocks. Let’s put the message in the following table
+
+![](/images/table_1.png)
+
+We have 10 boxes filled and the last 6 that are empty. What we do now is to complete every empty box with the number of empty boxes that we have<sup>[1](#myfootnote1)</sup>. In our case, 6. The table will end up like this
+
+![](/images/table_2.png)
+
+So that’s why we use Padding: to ensure that the message exactly fits one or multiple blocks.
+
+Now that we have our blocks completed, we can proceed and encrypt them. The trivial mode to accomplish this is to take every block of the message and encrypt it with a <b>key</b>. But this mode, called ECB, is a bad way to encrypt most kinds of data. Why? Because if two blocks have the same value they will be encrypted to the same value.
+Initially you would think, what is the problem with that? Well if the data that you are protecting has redundant portions, let’s say an image which has many pixels of the same color, you end up with an encrypted image from which you can uncover the original one. 
+
+Look at this example. The image at the left is the message (plaintext) and the image at the right is the result of encrypting it using a trivial mode 
+
+![](https://static.lwn.net/images/2018/kr-donenfeld-tux.jpg)
+
+
+<a name="myfootnote1">1</a>: This is an over simplistic view. The Padding method described here is PKCS5, and it is one of the many available. Besides, I have padded with “06” instead of the expected Hex 0x06, because I consider it easier for the reader
