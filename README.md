@@ -93,7 +93,7 @@ We have two blocks of 8 bytes each (remember that the second block only has two 
 
 As we have originated the message, we know that the last 6 bytes of the encrypted block #2 are padding. But let’s put ourselves in the attacker’s perspective.
 
-<code>Block #1= b6a7979ebcd4d84f</code><br>
+<code>Block #1= b6a7979ebcd4d8<b>4f</b></code><br>
 <code>Block #2= 3aba8c3d363bd8a8</code>
 
 As the attacker does not know the length of the padding, he/she will send both block #1 and block #2 to the oracle, but manipulating the last byte of block #1. How? We know that after decrypting the last byte of Block #2, a8, we need to get a 06, which is the correct byte of padding.
@@ -101,16 +101,18 @@ But, there is another byte that can lead to a correct padding message: 01, becau
 
 Let’s assume that last byte of Block #2, a8, is “n” (n between 0..255). So we perform the following operation
 
-New last byte of <code>Block #1 = 4f + n + 01 </code> (Last Byte of Block #1 + our_guess_of_last_byte_Block_#2 + padding)
+<code>New last byte of Block #1 = <b>4f</b> + n + 01 (Last Byte of Block #1 + our_guess_of_last_byte_Block_#2 + padding) </code>
 
 Now when the last byte of B#2 gets decrypted it will then be operated with this altered byte
 
 </code>Last byte of Message from Block #2: Decrypt(a8) + New last byte of Block #1 </code><br>
-If our assumption was not correct, we just replace “n” by one of the remaining 255 possible values.
-If correct, the last byte of Block #2 is an “n” and the resulted last byte of Message from Block #2 will only be 01, which means that padding is correct. If that it the case, we need to move backwards and calculate the second to last byte of Block #1, and in this case, it will be done with the following expression:
+
+<ul>
+<li>If our assumption was not correct, we just replace “n” by one of the remaining 255 possible values.</li>
+<li>If correct, the last byte of Block #2 is an “n” and the resulted last byte of Message from Block #2 will only be 01, which means that padding is correct. If that it the case, we need to move backwards and calculate the second to last byte of Block #1, and in this case, it will be done with the following expression:
 
 <code>New second-to-last byte of Block #1 = d8 + n + 02 ( remember that now we have 2 bytes of padding) </code> 
-
+</li>
 The same procedure can be applied to all the bytes in the block in order to decrypt them with the help of the oracle.
 
 <h4>How can it be detected?</h4>
