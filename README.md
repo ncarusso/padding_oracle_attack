@@ -42,3 +42,11 @@ So far, so good, but have you realized that if I know how the CRYPTO function wo
 Now, if we add the <b>key</b> to the scheme above we have
 
 ![](/images/enc2.png)
+
+
+<h3>2. More Crypto, Cipher Block Chaining (CBC) and Padding </h3>
+
+Now that you have the foundations of cryptography we can move to some other topics that will help you understand the padding oracle attack.
+
+The CRYPTO functions (or ciphers) that we have seen in crypto 101 are usually grouped into two categories: stream and block ciphers. Stream ciphers encrypt data on a bit-by-bit basis. Plaintext and ciphertext are always the same length. Unlike stream ciphers, which can encrypt data of any size, block ciphers can only encrypt data in "blocks" of a fixed size. So, what happens when the message that you want to send is shorter than the given block size (usually 8 or 16 bytes)? Well, that’s when the concept of <b>Padding</b> is needed. Follow me in this example
+You want to send the message <i>PWK Voucher</i> and the block size is 8 bytes. As the message is 10 bytes long (1 byte per character) you need two blocks. Let’s put the message in the following table
