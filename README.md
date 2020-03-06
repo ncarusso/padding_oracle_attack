@@ -128,5 +128,5 @@ Even if the receiver does not return an error message about improper encoding to
 </ul>
 <br><br>
 
-<a name="myfootnote1">1</a>: This is an over simplistic view. The Padding method described here is PKCS5, and it is one of the many available. Besides, I have padded with “06” instead of the expected Hex 0x06, because I consider it easier for the reader.<br>
-<a name="myfootnote2">2</a>: IV stands for Initialization vector, which is a random input added to the message used only once (usually not kept as secret). I have taken the license of using the “+” symbol to avoid mentioning that the operation is Exclusive OR, XOR.
+<a name="myfootnote1"><sup>[1]</sup></a> This is an over simplistic view. The Padding method described here is PKCS5, and it is one of the many available. Besides, I have padded with “06” instead of the expected Hex 0x06, because I consider it easier for the reader.<br>
+<a name="myfootnote2"><sup>[2]</sup></a> IV stands for Initialization vector, which is a random input added to the message used only once (usually not kept as secret). I have taken the license of using the “+” symbol to avoid mentioning that the operation is Exclusive OR, XOR.
