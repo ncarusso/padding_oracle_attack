@@ -18,3 +18,5 @@ This work has been divided in 3 main parts:
 Suppose that you want to send a message to a friend. Moreover, you want to send the message securely: you want to make sure an eavesdropper cannot read it. Here is where <b>Cryptography</b> plays its role, because it is the process of transforming a readable message, that we will call from now on <b>Plaintext</b>, into a secret message, that we will call <b>Ciphertext</b>.
 
 A <b>function</b> is a process that given a certain input, it outputs a value. For instance, given the function that adds 1 to a number, we have 
+
+![](/images/1.png)
