@@ -1,7 +1,7 @@
 <h1> From zero crypto to padding oracle attack </h1>
 
 <h3>Intro </h3>
-This write up has been written for the [#OCSPGiveaway contest](https://twitter.com/mubix/status/1196821680137678849) 
+This write up has been written for the [OCSPGiveaway]((https://twitter.com/mubix/status/1196821680137678849) contest
 and it is a humble attempt to explain the Padding oracle attack to an audience with no previous exposure to crypto.
 In order to explain a crypto attack to someone who doesn’t know crypto, I have come up with the following idea:
 I will define some key concepts in a very clear and simplified way, by using the universal concept of function, that we know from high school.
